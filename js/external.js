@@ -1,36 +1,45 @@
+let playerScore = 0
+let computerScore = 0
 
-function computerSelection(){
+const buttons = document.querySelectorAll('input')
 
+
+function computerPlay(){
+    let choices = ['rock', 'paper', 'scissors']
+    return choices[Math.floor(Math.random() * choices.length)]
 }
 
-/*the game logic */
-function playGame(playerSelection, computerSelection) {
-    let results = ''
+/*the game logic (who wins and who loses)*/
+function playRound(playerSelection, computerSelection) {
+    let computerSelection = computerPlay
+    let result = ''
 
     if (computerSelection === 'Rock') {
         if (playerSelection === 'Scissors') {
-            results = 'You Lose Rock beats Scissors' ;
+            result = 'You Lose Rock beats Scissors' ;
         } else if (playerSelection === 'Paper') {
-            results = 'You Win Paper beats Rock'
+            result = 'You Win Paper beats Rock'
         } else {
-            results = 'Its a tie'
+            result = 'Its a tie'
         }
     } else if (computerSelection === 'Paper') {
         if (playerSelection === 'Scissors') {
-            results = 'You Win Scissors beats Paper' ;
+            result = 'You Win Scissors beats Paper' ;
         } else if (playerSelection === 'Rock') {
-            results = 'You Lose Paper beats Rock'
+            result = 'You Lose Paper beats Rock'
         } else {
-            results = 'Its a tie'
+            result = 'Its a tie'
         }
     } else if (computerSelection === 'Scissors') {
         if (playerSelection === 'Rock') {
-            results = 'You Win Rock beats Scissors' ;
+            result = 'You Win Rock beats Scissors' ;
         } else if (playerSelection === 'Paper') {
-            results = 'You Lose Scissors beats Paper'
+            result = 'You Lose Scissors beats Paper'
         } else {
-            results = 'Its a tie'
+            result = 'Its a tie'
         }
     }
+    document.getElementById('result').innerHTML = result
+    return
 
 }
