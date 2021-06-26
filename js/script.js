@@ -38,8 +38,8 @@ function playRound(playerSelection, computerSelection) {
         } else {
             result = 'Its a tie'
         }
+        
     }
     document.getElementById('result').innerHTML = result
-    return
-
+    return result
 }
