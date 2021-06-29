@@ -2,8 +2,7 @@ let playerScore = 0
 let computerScore = 0
 
 const buttons = document.querySelectorAll('input')
-const winMsg = document.querySelector('.winner');
-const result = document.getElementById('result').innerHTML
+
 
 function computerPlay(){
     let choices = ['rock', 'paper', 'scissors']
@@ -11,39 +10,29 @@ function computerPlay(){
 }
 
 /*the game logic (who wins and who loses)*/
-function playRound(playerSelection, computerSelection) {
-    let computerSelection = computerPlay
+function playRound(playerSelection) {
+    let computerSelection = computerPlay()
     let result = ""
-    
-    if (playerSelection === computerSelection) {
-        result = "Its a Draw"
-        return
+
+    if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
+        (playerSelection == 'rock' && computerSelection == 'scissors') ||
+        (playerSelection == 'rock' && computerSelection == 'scissors')) {
+        result = "You win"
     }
-    if (playerSelection === paper) {
-        if (computerSelection == rock) {
-            result = "You Win"
-            return
-        }
-        else
-            result = "You Lose" 
-            return
+    else if (playerSelection == computerSelection) {
+        result = "You draw"
     }
-    if (playerSelection === rock) {
-        if (computerSelection == scissors) {
-            result = "You Win"
-            return
-        }
-        else
-            result = "You Lose"
-            return 
+    else {
+        result = "You lose"
     }
-    if (playerSelection === scissors) {
-        if (computerSelection == rock) {
-            result = "You Lose"
-            return
-        }
-        else
-            result = "You Win" 
-            return
-    }
+    document.getElementById('result').innerHTML = result
+    return
 }
+
+
+buttons.forEach(button =>{
+    button.addEventListener('click', function(){
+        playRound(button.value)
+    })
+})
+
