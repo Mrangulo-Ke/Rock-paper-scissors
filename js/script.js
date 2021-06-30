@@ -15,8 +15,8 @@ function playRound(playerSelection) {
     let result = ""
 
     if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
-        (playerSelection == 'rock' && computerSelection == 'scissors') ||
-        (playerSelection == 'rock' && computerSelection == 'scissors')) {
+        (playerSelection == 'paper' && computerSelection == 'rock') ||
+        (playerSelection == 'scissors' && computerSelection == 'paper')) {
         result = "You win"
     }
     else if (playerSelection == computerSelection) {
@@ -29,10 +29,9 @@ function playRound(playerSelection) {
     return
 }
 
-
+//helper functions
 buttons.forEach(button =>{
     button.addEventListener('click', function(){
         playRound(button.value)
     })
 })
-
