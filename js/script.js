@@ -2,7 +2,7 @@ let playerScore = 0
 let computerScore = 0
 
 const buttons = document.querySelectorAll('input')
-
+const btn = document.querySelector('#btn')
 
 function computerPlay(){
     let choices = ['rock', 'paper', 'scissors']
@@ -25,7 +25,7 @@ function playRound(playerSelection) {
     else {
         result = "You lose"
     }
-    document.getElementById('result').innerHTML = result
+    document.getElementById('result').textContent = result
     return
 }
 
@@ -34,6 +34,10 @@ buttons.forEach(button =>{
     button.addEventListener('click', function(){
         playRound(button.value)
     })
+})
+
+btn.addEventListener("click", () => {
+    alert("Hello World!")
 })
 
 function disableButtons() {
