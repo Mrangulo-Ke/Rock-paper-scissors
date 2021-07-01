@@ -35,3 +35,9 @@ buttons.forEach(button =>{
         playRound(button.value)
     })
 })
+
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
+}
